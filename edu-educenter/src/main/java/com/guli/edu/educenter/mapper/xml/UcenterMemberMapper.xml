@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guli.edu.educenter.mapper.UcenterMemberMapper">
+    <!--   统计某一天的注册人数 public Integer countRegisterNum(String day);  -->
+    <select id="countRegisterNum" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM ucenter_member um
+        where DATE(um.gmt_create) = #{day}
+    </select>
+
+</mapper>
