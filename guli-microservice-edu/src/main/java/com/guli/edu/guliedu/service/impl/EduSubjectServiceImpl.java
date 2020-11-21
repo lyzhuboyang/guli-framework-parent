@@ -166,7 +166,6 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         }
     }
 
-
     //判断数据库表中是否有相同名称的一级分类
     private EduSubject existOneLevelName(String name) {
         QueryWrapper<EduSubject> wrapper = new QueryWrapper<>();
@@ -197,7 +196,7 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
 
         //2 查询所有的二级分类
         QueryWrapper<EduSubject> wrapperTwo = new QueryWrapper<>();
-        wrapperOne.ne("parent_id", "0");
+        wrapperTwo.ne("parent_id", "0");
         List<EduSubject> twoLevelSubjectList = baseMapper.selectList(wrapperTwo);
 
         //3 进行数据封装
